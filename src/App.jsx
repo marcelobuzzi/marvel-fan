@@ -18,7 +18,7 @@ function App() {
     <>     
       <BrowserRouter>
         <section className="container-fluid m-0 p-0">
-          <img style={{width: '100%'}} className="img-fluid" src="http://localhost:5173/src/assets/images/banner.png" alt="" />
+          <img style={{width: '100%'}} className="img-fluid" src="src/assets/images/banner.png" alt="" />
         </section>
         <Header/>
 
