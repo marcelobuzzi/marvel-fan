@@ -76,6 +76,11 @@ function Navbar() {
           </div>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0 w-100 d-flex justify-content-end">
+            <li className="nav-item">
+                <Link to={`/show-users`} className="nav-link">
+                  Usuarios
+                </Link>
+              </li>
               <li className="nav-item">
                 <Link to={`/signup`} className="nav-link">
                   Registrarse
