@@ -7,9 +7,10 @@ import {EditUser} from "./pages/EditUser"
 import {CharacterInfo} from "./pages/CharacterInfo"
 import {ShowUsers} from "./pages/ShowUsers"
 import {Login} from "./pages/Login"
-import { About } from "./pages/about";
+import {About} from "./pages/about";
 import Footer from "./components/Footer"
 import Banner from "./components/Banner"
+import BannerImage from "./assets/images/banner.png"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 import * as bootstrap from 'bootstrap'
@@ -19,7 +20,7 @@ function App() {
     <>     
       <BrowserRouter>
 
-        <Banner/>
+        <Banner image={BannerImage}/>
 
         <Header/>
 
