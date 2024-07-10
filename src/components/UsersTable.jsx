@@ -2,14 +2,34 @@ import {useState, useEffect} from "react"
 import {Link} from "react-router-dom";
 import {collection, getDocs, deleteDoc, doc} from "firebase/firestore"
 import {db} from "../utils/FirebaseConfig"
-import jQuery from "jquery";
-import DataTable from 'datatables.net-bs5';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content' 
 
 function UsersTable() {
   const [users, setUsers] = useState([])
   const usersCollection = collection(db, "users")
+
+  const deleteAlert = (id) => {
+    withReactContent(Swal).fire({
+      title: "Esta seguro?",
+      text: "Este preceso de eliminar es irreversible",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "SI",
+      cancelButtonText: "NO"
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        await removeUser(id);
+        Swal.fire({
+          title: "Borrado!",
+          text: "El registro se eliminó correctamente.",
+          icon: "success"
+        });
+      }
+    });
+  }
 
   useEffect(() => {
     const getUsers = async () => {
@@ -25,9 +45,7 @@ function UsersTable() {
     getUsers()
   }, [users]);
 
-  const removeUser = async (e) => {
-    e.preventDefault();
-    const id = e.target.dataset.id
+  const removeUser = async (id) => {
     const userDoc = doc(db, 'users', id)
     await deleteDoc(userDoc)
   }
@@ -58,7 +76,7 @@ function UsersTable() {
                     </button>
                     <ul className="dropdown-menu bg-dark">
                       <li><Link to={`/edit/${user.id}`} className="dropdown-item text-light"><i className="fa-solid fa-user-pen"></i> Modificar</Link></li>
-                      <li><a className="dropdown-item text-light" href="#" data-id={user.id} onClick={e => removeUser(e)}><i className="fa-solid fa-trash-can"></i> Eliminar</a></li>
+                      <li><a className="dropdown-item text-light" href="#" onClick={() => deleteAlert(user.id)}><i className="fa-solid fa-trash-can"></i> Eliminar</a></li>
                     </ul>
                   </div>
                 </td>

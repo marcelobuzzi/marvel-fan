@@ -1,17 +1,27 @@
-import { useState } from 'react'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
 function Alert() {
-  const [count, setCount] = useState(0)
 
   const MySwal = () => {
     withReactContent(Swal).fire({
-      icon: "error",
-      title: "Error",
-      text: "Le erraste feo",
+      title: "Esta seguro?",
+      text: "Este preceso de eliminar es irreversible",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "SI"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "Borrado!",
+          text: "El registro se eliminó correctamente.",
+          icon: "success"
+        });
+      }
     });
-  } 
+  }
 
   return (
     <>
