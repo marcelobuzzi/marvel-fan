@@ -1,0 +1,21 @@
+#imgCharacter{
+    width: 350px;
+    height: 450px;
+    margin-left: 210px;
+}
+
+#characterbox{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-right: 25px;
+    height: 500px;
+}
+
+.text-red{
+    color: #f0141e;
+}
+
+#characterdata{
+    margin-right: 200px;
+}
+

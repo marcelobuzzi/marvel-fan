@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: rgb(39, 39, 39);
+}
+
+.dropdown-item {
+  color: #FFFFFF !important;
+}
+
+.dropdown-item:hover {
+  background-color: #2b3035 !important;
+}
+
+.dropdown-item:active {
+  background-color: #cf1928 !important;
+}
+
+.my-efect-card {
+  transition: transform 0.3s;
+}
+
+.my-efect-card:hover {
+  animation: neon-flicker 0.7s infinite alternate;
+  transform: translateY(-5px) translateX(-2px);
+}
+
+@keyframes neon-flicker {
+  0% {
+    box-shadow: 0 4px 8px 0 rgba(219, 35, 35, 0.1), 0 6px 20px 0 rgba(219, 35, 35, 0.1);
+  }
+  25% {
+    box-shadow: 0 4px 8px 0 rgba(219, 35, 35, 0.3), 0 6px 20px 0 rgba(219, 35, 35, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 8px 0 rgba(219, 35, 35, 0.5), 0 6px 20px 0 rgba(219, 35, 35, 0.5);
+  }
+  100% {
+    box-shadow: 0 4px 8px 0 rgba(219, 35, 35, 0.7), 0 6px 20px 0 rgba(219, 35, 35, 0.7);
+  }
+}
+
+.text-shadow {
+  text-shadow: 3px 3px 5px rgba(219, 35, 35, 0.7);
+}

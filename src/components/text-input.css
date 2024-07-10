@@ -1,0 +1,19 @@
+.my-invalid-feedback {
+  width: 100%;
+  margin-top: .25rem;
+  font-size: .875em;
+  color: var(--bs-form-invalid-color);
+}
+
+input {
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-radius: 0 !important;
+}
+
+input:focus {
+  box-shadow: none !important;
+  border-color: #4f8ac5 !important;
+  outline: none !important;
+}
