@@ -1,4 +1,5 @@
 import { useState } from "react"
+import {useNavigate} from "react-router-dom"
 import TextInput from "./TextInput.jsx"
 
 function LoginForm() {
@@ -8,6 +9,7 @@ function LoginForm() {
     email   : {estado: false, message: ''},
     password: {estado: false, message: ''},
   })
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -26,7 +28,7 @@ function LoginForm() {
     setErrors(newErrors)
 
     if (!newErrors.email.estado && !newErrors.password.estado) {
-      console.log("Formulario válido")
+      navigate("/");
     }
   }
 
